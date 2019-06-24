@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string eingabe = Console.ReadLine();
+            string letter = eingabe.Substring(2,1);
+            
+            int[] zahl = new int[10];
+            zahl[0]=Convert.ToInt32(eingabe.Substring(0,1));;
+            zahl[1]=Convert.ToInt32(eingabe.Substring(1,1));;
+            zahl[2]=Convert.ToInt32(eingabe.Substring(3,1));;
+            zahl[3]=Convert.ToInt32(eingabe.Substring(4,1));;
+            zahl[4]=Convert.ToInt32(eingabe.Substring(5,1));;
+            zahl[5]=Convert.ToInt32(eingabe.Substring(7,1));;
+            zahl[6]=Convert.ToInt32(eingabe.Substring(8,1));;
+            
+            if (letter.Contains("A")||letter.Contains("E")||letter.Contains("I")||letter.Contains("O")||letter.Contains("U")||letter.Contains("Y"))
+            {
+                Console.WriteLine("invalid");
+                return;
+            }
+            
+            int res=0;
+            int erg=0;
+            for(int x=0;x<6;x++)
+            {
+                erg = zahl[x]+zahl[x+1];
+                
+                if (erg%2==0)
+                {
+                res+=1; 
+                }
+            }
+            
+            if (res==6)
+            {
+                Console.WriteLine("valid");
+            }else{
+                Console.WriteLine("invalid");
+            }
+        }
+    }
+}
